@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <form action ="index.html" class="formulario" method="GET">
+
+        <h1>Registrate</h1>
+        <div class="contenedor">
+
+        <div class="input-contenedor">
+            <i class="fas fa-user-tag"></i>
+            <input type="text" name= "nombre" placeholder="Nombre Completo" >
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-key"></i>
+            <input type="password" name="pass" placeholder="Contraseña" >
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-envelope-open-text"></i>
+            <input type="text" name = "correo" placeholder="Correo Electronico" >
+        </div>
+        <p><input type="submit" value="Registrate" class="button"></p>
+        <p>Al registrarte, aceptas nuestros Terminos y Condiciones de contrato</p>
+        <p>¿Ya tienes cuenta? <a class="link" href="login.html">Iniciar Sesion</a></p>
+        </div>
+    </form>
+    <script>
+        (function(){
+            var formulario = document.getElementsByClassName('formulario')[0],
+                elementos = formulario.elements,
+                boton = document.getElementsByClassName("button");
+            
+            
+                var validarNombre = function(e){
+                if(formulario.nombre.value == 0){
+                    alert("completa el campo nombre");
+                    e.preventDefault();
+    
+                }
+            };
+                
+                var validarPass = function(e){
+                if(formulario.pass.value == 0){
+                    alert("completa el campo contraseña");
+                    e.preventDefault();
+    
+                }
+            };
+
+                var validarCorreo = function(e){
+                if(formulario.correo.value == 0){
+                    alert("completa el campo correo");
+                    e.preventDefault();
+    
+                }
+            };
+            var validar = function(e){
+                validarNombre(e);
+                validarPass(e);
+                validarCorreo(e);
+            };
+    
+    
+            formulario.addEventListener("submit", validar);
+        }())
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <form action ="index.html" class="formulario" method="GET">
+
+        <h1>Login</h1>
+        <div class="contenedor">
+        <div class="input-contenedor">
+            <i class="fas fa-envelope-open-text"></i>
+            <input type="text" name= "correo" placeholder="Correo Electronico" >
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-key"></i>
+            <input type="password" name = "pass" placeholder="Contraseña" >
+        </div>
+
+        
+        <p><input type="submit" value="Login" class="button"></p>
+        <p>Al registrarte, aceptas nuestros Terminos y Condiciones de contrato</p>
+        <p>¿No tienes cuenta? <a class="link" href="registro.html">Registrate</a></p>
+        </div>
+    </form>
+    <script>
+    (function(){
+        var formulario = document.getElementsByClassName('formulario')[0],
+            elementos = formulario.elements,
+            boton = document.getElementsByClassName("button");
+        
+        var validarCorreo = function(e){
+            if(formulario.correo.value == 0){
+                alert("completa el campo correo");
+                e.preventDefault();
+
+            }
+        };
+        var validarPass = function(e){
+            if(formulario.pass.value == 0){
+                alert("completa el campo contraseña");
+                e.preventDefault();
+
+            }
+        };
+
+        var validar = function(e){
+            validarCorreo(e);
+            validarPass(e);
+        };
+
+
+        formulario.addEventListener("submit", validar);
+    }())
+    </script>
+</body>
+</html>
