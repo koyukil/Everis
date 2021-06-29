@@ -1,0 +1,105 @@
+
+<h1>Formulario de Contacto</h1>
+<div class="row">
+    <div class="col-6">
+        <div style="width: 80%;">
+            <form class="needs-validation was-validated" novalidate [formGroup]="formulario" (ngSubmit)="enviarPago()">
+                <div class="form-group">
+                    <label for="pais" class="form-label">Ingrese Pais:</label>
+                    <input type="text" id="pais" formControlName="pais" placeholder="Ingrese pais" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese un Pais de 3 a 20 caracteres
+                    </div>
+                </div>
+                <div>
+                    <label for="region" class="form-label">Ingrese Region:</label>
+                    <input type="text" id="region" formControlName="region" placeholder="Ingrese Region" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese un Región de 3 a 20 caracteres
+                    </div>
+                </div>
+                <div>
+                    <label for="ciudad"class="form-label">Ingrese Ciudad:</label>
+                    <input type="text" id="ciudad" formControlName="ciudad" placeholder="Ingrese ciudad" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese un Pais de 3 a 50 caracteres
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">Ingrese Comuna:</label>
+                    <input type="text" id="comuna" formControlName="comuna" placeholder="Ingrese Comuna de residencia" class="form-control" required>
+                    <div class="valid-feedback">
+                          Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                          Ingrese un Pais de 3 a 20 caracteres
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">Ingrese Codigo Postal:</label>
+                    <input type="text" id="codigo" formControlName="codigo" placeholder="Ingrese codigo postal" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Solo los 7 digitos de su codigo postal
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">Ingrese Dirección</label>
+                    <input type="text" id="calle" formControlName="calle" placeholder="Ingrese direccion de envio" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese una Direccion de 10 a 20 caracteres
+                    </div>
+                </div>
+                <br>
+                <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-6">
+      <h3>Resumen de Compra</h3>
+      <table class="table table-image">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of productos; let j = index">
+
+              <td class="w-25">
+              </td>
+              <td>{{p.nombre}}</td>
+              <td>{{p.precio}}</td>
+              <td>{{p.cant}}</td>
+              <td>{{(p.precio*p.cant) | currency: '1':'CLP'}}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>Total:</th>
+              <td>{{precioFinal| currency:'CLP'}}</td>
+              <td></td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+</div>

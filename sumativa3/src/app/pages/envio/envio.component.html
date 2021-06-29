@@ -1,0 +1,96 @@
+<h1>Formulario de Envío</h1>
+<div class="row">
+    <div class="col-6">
+        <div style="width: 80%;">
+            <form class="needs-validation was-validated" [formGroup]="formulario" (ngSubmit)="enviarPago()">
+                <div class="form-group">
+                    <label for="tipo" class="form-label">Ingrese Tipo de tarjeta:</label>
+                    <input type="text" id="tipo" formControlName="tipo" placeholder="Ingrese Tipo de tarjeta" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese si es visa o mastercard
+                    </div>
+                </div>
+                <div>
+                    <label for="nombre" class="form-label">Ingrese Nombre Titular Tarjeta:</label>
+                    <input type="text" id="nombre" formControlName="nombre" placeholder="Ingrese Nombre" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese un nombre de 3 a 20 caracteres
+                    </div>
+                </div>
+                <div>
+                    <label for="numero"class="form-label">Ingrese N° de tarjeta:</label>
+                    <input type="text" id="numero" formControlName="numero" placeholder="Ingrese N° de tarjeta" class="form-control" required>
+                    <div class="valid-feedback">
+                      Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese los 16 numeros de su tarjeta
+                    </div>
+                </div>
+                <div>
+                    <label for= "cvc" class="form-label">Ingrese CVC:</label>
+                    <input type="text" id="cvc" formControlName="cvc" placeholder="Ingrese CVC" class="form-control"
+                        required>
+                        <div class="valid-feedback">
+                          Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                          Ingrese codigo de 3 digitos
+                        </div>
+                </div>
+                <div>
+                    <label for= "exp"class="form-label">Ingrese Fecha de Experinacion:</label>
+                    <input type="text" id="exp" formControlName="exp" placeholder="Ingrese Fecha de Experinacion" class="form-control"
+                        required>
+                        <div class="valid-feedback">
+                          Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                          Ingrese la fecha de expiracion
+                        </div>
+                </div>
+                <br>
+                <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div class="colc-8">
+      <h3>Orden de Compra </h3>
+      <table class="table table-image">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of productos; let j = index">
+
+              <td class="w-25">
+              </td>
+              <td>{{p.nombre}}</td>
+              <td>{{p.precio}}</td>
+              <td>{{p.cant}}</td>
+              <td>{{(p.precio*p.cant) | currency: '1':'CLP'}}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>Total:</th>
+              <td>{{precioFinal| currency:'CLP'}}</td>
+              <td></td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+</div>
